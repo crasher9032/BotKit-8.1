@@ -1,0 +1,30 @@
+{
+    "server": {
+        "port": 8003
+    },
+    "app": {
+        "apiPrefix" : "",
+        "url": "https://ccba-189-219-66-56.ngrok.io"
+    },
+    "credentials": {
+        "apikey": "s8ES5t81jZy+LEYrgHdzJrkOe++ik8TOzP1FByxpGmg=",
+        "appId": "cs-a543b650-5578-54a2-9367-493d2dab0815",
+        "st-67890":{
+            "apikey": "test_api_key2",
+            "appId": "test_app_id2"
+        }
+    },
+    "redis": {
+        "options": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "available": false
+    },
+    "examples" : {
+        "mockServicesHost"  : "http://localhost:8004"
+    },
+    "liveagentlicense": "8947569",
+    "supportsMessageAck": true,
+    "languages":["en","de"]
+}
