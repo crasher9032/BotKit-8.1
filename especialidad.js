@@ -42,16 +42,17 @@ module.exports = {
     on_webhook      : function(requestId, data, componentName, callback) {
         var context = data.context;
         var especialidad = context.entities.especialista_name;
-        mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad
+        mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad;
         console.log(especialidad)
         if (componentName === 'get_especialista') {
-            setTimeout(
-            findCabs()
+            setTimeout(()=>{
+                findCabs()
                 .then(function(cabList) {
                     context.cabList = cabList;
                     callback(null, data);
                     console.log(cabList)
                 })
+            }
             ,120000);
         } 
     }
