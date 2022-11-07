@@ -1,5 +1,5 @@
-var botId          = "st-a80b332d-0f83-5b4c-af93-71724c178aa9";
-var botName        = "pruebas webwook";
+var botId          = "st-67e8fe6d-8737-5c43-bb6b-033e35f12d69";
+var botName        = "Webhook Bot";
 var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
@@ -40,6 +40,7 @@ module.exports = {
         sdk.sendUserMessage(data, callback);
     },
     on_webhook      : function(requestId, data, componentName, callback) {
+	callback(null, new sdk.AsyncResponse());
         var context = data.context;
         var especialidad = context.entities.especialista_name;
         mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad;
@@ -49,7 +50,7 @@ module.exports = {
                 findCabs()
                 .then(function(cabList) {
                     context.cabList = cabList;
-                    callback(null, data);
+		    sdk.respondToHook(data);
                     console.log(cabList)
                 })
             }

@@ -4,11 +4,11 @@
     },
     "app": {
         "apiPrefix" : "",
-        "url": "http://ec2-54-164-250-93.compute-1.amazonaws.com"
+        "url": "https://ec2-54-164-250-93.compute-1.amazonaws.com:8003"
     },
     "credentials": {
-        "apikey": "B0hGohYvvikR+AyOLwxiY3Gl73HthTauI3nCmaTaSVo=",
-        "appId": "cs-223916b6-7923-5d07-a909-7ae2cd9276b3",
+        "apikey": "s8ES5t81jZy+LEYrgHdzJrkOe++ik8TOzP1FByxpGmg=",
+        "appId": "cs-a543b650-5578-54a2-9367-493d2dab0815",
         "st-67890":{
             "apikey": "test_api_key2",
             "appId": "test_app_id2"
@@ -19,7 +19,7 @@
             "host": "localhost",
             "port": 6379
         },
-        "available": true
+        "available": false
     },
     "examples" : {
         "mockServicesHost"  : "http://localhost:8004"
