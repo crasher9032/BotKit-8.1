@@ -18,7 +18,7 @@ sdk.registerBot(require('./BookACab.js'));
 sdk.registerBot(require('./OrderAPizza.js'));
 sdk.registerBot(require('./BotVariables.js'));
 sdk.registerBot(require('./LiveChat.js'));
-sdk.registerBot(require('./especialidad.js'));
+sdk.registerBot(require('./formulario'));
 
 
 exp.post('/form', function(req, res){
