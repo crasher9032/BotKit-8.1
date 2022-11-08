@@ -23,7 +23,7 @@ sdk.registerBot(require('./formulario'));
 
 exp.post('/form', function(req, res){
     try {
-        console.log(req);
+        console.log(req.body);
         sdk.saveData(req.body.id, re.body)
         .then(function() {
             //Finished
