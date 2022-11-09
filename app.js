@@ -3,6 +3,7 @@ var Server      = require("./lib/server");
 var sdk         = require("./lib/sdk");
 var config      = require("./config");
 const express = require("express");
+const cors = require("cors");
 
 var app    = new Application(null, config);
 var server = new Server(config, app);
@@ -20,6 +21,7 @@ sdk.registerBot(require('./BotVariables.js'));
 sdk.registerBot(require('./LiveChat.js'));
 sdk.registerBot(require('./formulario'));
 
+exp.use(cors());
 
 exp.post('/form', function(req, res){
     try {

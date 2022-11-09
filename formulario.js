@@ -54,7 +54,7 @@ try{
             callback(null, new sdk.AsyncResponse());
         }
     }catch(e){
-	console.log(e);
-}
+	    console.log(e);
+    }
 }
 };
