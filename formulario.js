@@ -34,20 +34,27 @@ module.exports = {
     botName : botName,
 
     on_user_message : function(requestId, data, callback) {
+	console.log("on user 1");
         sdk.sendBotMessage(data, callback);
     },
     on_bot_message  : function(requestId, data, callback) {
+	console.log("on user 2");
         sdk.sendUserMessage(data, callback);
     },
     on_webhook      : function(requestId, data, componentName, callback) {
-	callback(null, new sdk.AsyncResponse());
+try{
+	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + requestId;
-            sdk.respondToHook(url);
+	    context.url = url;
+            callback(null, data);
         } 
         if (componentName === 'open_formulario'){
             callback(null, new sdk.AsyncResponse());
         }
-    }
+    }catch(e){
+	console.log(e);
+}
+}
 };

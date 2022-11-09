@@ -24,7 +24,8 @@ sdk.registerBot(require('./formulario'));
 exp.post('/form', function(req, res){
     try {
         console.log(req.body);
-        sdk.saveData(req.body.id, re.body)
+	context.dataForm = req.body;
+        sdk.saveData(req.body.id, req.body)
         .then(function() {
             //Finished
             data.success = 'true';
