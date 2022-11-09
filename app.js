@@ -29,7 +29,7 @@ exp.post('/form', function(req, res){
     try {
         console.log(req.body);
         console.log("1");
-	    context.dataForm = JSON.parse(req.body);
+	    //context.dataForm = JSON.parse(req.body);
         console.log("2");
         sdk.saveData(req.body.id, req.body)
         .then(function() {
