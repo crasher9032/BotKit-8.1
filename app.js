@@ -28,7 +28,9 @@ exp.use(bodyParser.json());
 exp.post('/form', function(req, res){
     try {
         console.log(req.body);
+        console.log("1");
 	    context.dataForm = req.body;
+        console.log("2");
         sdk.saveData(req.body.id, req.body)
         .then(function() {
             //Finished
@@ -41,9 +43,10 @@ exp.post('/form', function(req, res){
                 "status": "success",
             });
             callback(null, 'Terminado');
+            console.log("3");
         });
     } catch (error) {
-        res.sendStatus(404, {"error" : error});
+        res.send(error);
     }
 });
 
