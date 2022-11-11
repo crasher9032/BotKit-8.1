@@ -57,7 +57,6 @@ module.exports = {
                 try {
                     let id = req.params.requestId;
                     console.log(req.body);
-                    console.log("1");
                     //context.dataForm = JSON.parse(req.body);
                     context.dataForm = req.body;
                     console.log("2");
