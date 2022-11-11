@@ -29,6 +29,7 @@ function findCabs(/*userLoc*/) {
 }
 
 module.exports = {
+    form,
     botId   : botId,
     botName : botName,
 
@@ -82,5 +83,3 @@ module.exports = {
     }
 }
 };
-
-module.exports = form;

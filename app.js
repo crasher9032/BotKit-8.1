@@ -5,7 +5,7 @@ var config      = require("./config");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const formulario = require("formulario");
+const formulario = require("./formulario");
 
 var app    = new Application(null, config);
 var server = new Server(config, app);
@@ -21,11 +21,11 @@ sdk.registerBot(require('./BookACab.js'));
 sdk.registerBot(require('./OrderAPizza.js'));
 sdk.registerBot(require('./BotVariables.js'));
 sdk.registerBot(require('./LiveChat.js'));
-sdk.registerBot(require('./formulario'));
+sdk.registerBot(formulario);
 
 exp.use(cors());
 exp.use(bodyParser.json());
-exp.use('/form', formulario);
+exp.use('/form', formulario.form);
 
 // exp.post('/form', function(req, res){
 //     try {
