@@ -4,6 +4,7 @@ var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
 var config         = require("./config");
+const form = require("express").Router();
 //var mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad;
 
 /*
@@ -27,8 +28,6 @@ function findCabs(/*userLoc*/) {
     });
 }
 
-
-
 module.exports = {
     botId   : botId,
     botName : botName,
@@ -42,7 +41,7 @@ module.exports = {
         sdk.sendUserMessage(data, callback);
     },
     on_webhook      : function(requestId, data, componentName, callback) {
-try{
+    try{
 	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
@@ -52,9 +51,36 @@ try{
         } 
         if (componentName === 'open_formulario'){
             callback(null, new sdk.AsyncResponse());
+            form.post("/:requestId", function(req, res){
+                try {
+                    let id = req.params.requestId;
+                    console.log(req.body);
+                    console.log("1");
+                    //context.dataForm = JSON.parse(req.body);
+                    console.log("2");
+                    sdk.saveData(req.body.id, req.body)
+                    .then(function() {
+                        //Finished
+                        data.success = 'true';
+                        res.header("Access-Control-Allow-Origin","*");
+                        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                        res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+                        res.header("Content-Security-Policy","default-src 'none'");
+                        res.send({
+                            "status": "success",
+                        });
+                        callback(null, 'Terminado');
+                        console.log("3");
+                    });
+                } catch (error) {
+                    res.send(error);
+                }
+            });
         }
     }catch(e){
 	    console.log(e);
     }
 }
 };
+
+module.exports = form;
