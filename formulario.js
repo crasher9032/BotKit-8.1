@@ -51,6 +51,7 @@ module.exports = {
             callback(null, data);
         } 
         if (componentName === 'open_formulario'){
+            console.log(requestId);
             callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
                 try {
@@ -58,11 +59,8 @@ module.exports = {
                     console.log(req.body);
                     console.log("1");
                     //context.dataForm = JSON.parse(req.body);
+                    context.dataForm = req.body;
                     console.log("2");
-                    sdk.saveData(req.body.id, req.body)
-                    .then(function() {
-                        //Finished
-                        data.success = 'true';
                         res.header("Access-Control-Allow-Origin","*");
                         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                         res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
@@ -70,9 +68,8 @@ module.exports = {
                         res.send({
                             "status": "success",
                         });
-                        callback(null, 'Terminado');
+                        callback(null, req.body);
                         console.log("3");
-                    });
                 } catch (error) {
                     res.send(error);
                 }
