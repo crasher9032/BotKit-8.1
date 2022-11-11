@@ -67,7 +67,8 @@ module.exports = {
                         res.send({
                             "status": "success",
                         });
-                        callback(null, req.body);
+                        //callback(null, req.body);
+                        sdk.respondToHook(data);
                         console.log("3");
                 } catch (error) {
                     res.send(error);
