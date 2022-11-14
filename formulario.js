@@ -60,20 +60,17 @@ module.exports = {
                     let id = req.params.requestId;
                     console.log(req.body);
                     //context.dataForm = JSON.parse(req.body);
+                    context.dataForm = req.body;
                     console.log("2");
-                    res.header("Access-Control-Allow-Origin","*");
-                    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                    res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+                        res.header("Access-Control-Allow-Origin","*");
+                        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                        res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
                         res.header("Content-Security-Policy","default-src 'none'");
                         res.send({
                             "status": "success",
                         });
                         //callback(null, req.body);
-                        sdk.getSavedData(requestId)
-                        .then(function(data) {
-                            data.context.dataForm = req.body;
-                            sdk.respondToHook(data);
-                        });
+                        sdk.respondToHook(data);
                         console.log("3");
                 } catch (error) {
                     res.send(error);
