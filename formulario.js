@@ -51,10 +51,6 @@ module.exports = {
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + requestId;
 	        context.url = url;
             callback(null, data);
-        } 
-        if (componentName === 'open_formulario'){
-            console.log(requestId);
-            callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
                 try {
                     let id = req.params.requestId;
@@ -62,20 +58,24 @@ module.exports = {
                     //context.dataForm = JSON.parse(req.body);
                     context.dataForm = req.body;
                     console.log("2");
-                        res.header("Access-Control-Allow-Origin","*");
-                        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                        res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
-                        res.header("Content-Security-Policy","default-src 'none'");
-                        res.send({
-                            "status": "success",
-                        });
-                        //callback(null, req.body);
-                        sdk.respondToHook(data);
-                        console.log("3");
+                    res.header("Access-Control-Allow-Origin","*");
+                    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                    res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+                    res.header("Content-Security-Policy","default-src 'none'");
+                    res.send({
+                        "status": "success",
+                    });
+                    //callback(null, req.body);
+                    sdk.respondToHook(data);
+                    console.log("3");
                 } catch (error) {
                     res.send(error);
                 }
             });
+        } 
+        if (componentName === 'open_formulario'){
+            callback(null, new sdk.AsyncResponse());
+            console.log(requestId);
         }
     }catch(e){
 	    console.log(e);
