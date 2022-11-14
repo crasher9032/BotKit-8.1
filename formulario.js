@@ -69,11 +69,12 @@ module.exports = {
                             "status": "success",
                         });
                         //callback(null, req.body);
-                        sdk.getSavedData(requestId)
-                        .then(function(data) {
-                            data.context.dataForm = req.body;
-                            sdk.respondToHook(data);
-                        });
+                        data.context.dataForm = req.body;
+                        callback(null, data);
+                        // sdk.getSavedData(requestId)
+                        // .then(function(data) {
+                        //     sdk.respondToHook(data);
+                        // });
                         console.log("3");
                 } catch (error) {
                     res.send(error);
