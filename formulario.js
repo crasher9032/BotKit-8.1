@@ -50,7 +50,9 @@ module.exports = {
         if (componentName === 'get_formulario') {
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + requestId;
 	        context.url = url;
-            callback(null, data);
+            //callback(null, data);
+            sdk.sendBotMessage({"message" : url}, callback);
+            callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
                 try {
                     let id = req.params.requestId;
