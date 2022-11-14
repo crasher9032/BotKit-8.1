@@ -53,6 +53,7 @@ module.exports = {
             callback(null, data);
         } 
         if (componentName === 'open_formulario'){
+            let datos = data;
             console.log(requestId);
             callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
@@ -70,7 +71,7 @@ module.exports = {
                             "status": "success",
                         });
                         //callback(null, req.body);
-                        sdk.respondToHook(data);
+                        sdk.respondToHook(datos);
                         console.log("3");
                 } catch (error) {
                     res.send(error);
