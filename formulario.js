@@ -42,14 +42,13 @@ module.exports = {
         sdk.sendUserMessage(data, callback);
     },
     on_webhook      : function(requestId, data, componentName, callback) {
-        console.log(data);
         console.log("llamada al webhook");
-        console.log(requestId);
     try{
 	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
-            let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + requestId;
+            console.log(context.contextId);
+            let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + contextId;
 	        context.url = url;
             callback(null, data);
         } 
