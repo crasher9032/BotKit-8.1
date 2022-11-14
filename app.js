@@ -6,7 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const formulario = require("./formulario");
-import cluster from 'node:cluster';
+//import cluster from 'node:cluster';
 
 var app    = new Application(null, config);
 var server = new Server(config, app);
@@ -28,9 +28,9 @@ exp.use(cors());
 exp.use(bodyParser.json());
 exp.use('/form', formulario.form);
 
-exp.get('/clusters', function(req, res){
-    console.log(cluster.workers);
-});
+// exp.get('/clusters', function(req, res){
+//     console.log(cluster.workers);
+// });
 // exp.post('/form', function(req, res){
 //     try {
 //         console.log(req.body);
