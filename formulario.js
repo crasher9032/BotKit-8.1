@@ -4,6 +4,7 @@ var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
 var config         = require("./config");
+const requestStore = require("./lib/sdk/lib/requestStore");
 const form = require("express").Router();
 //var mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad;
 
@@ -53,7 +54,6 @@ module.exports = {
             callback(null, data);
         } 
         if (componentName === 'open_formulario'){
-            let datos = data;
             console.log(requestId);
             callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
@@ -71,9 +71,10 @@ module.exports = {
                             "status": "success",
                         });
                         //callback(null, req.body);
-                        console.log(datos);
-                        sdk.respondToHook(datos);
+                        console.log(data);
+                        sdk.respondToHook(data);
                         console.log("3");
+                        requestStore.removeRequest(data);
                 } catch (error) {
                     res.send(error);
                 }
