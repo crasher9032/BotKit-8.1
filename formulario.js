@@ -63,13 +63,13 @@ module.exports = {
                     //context.dataForm = JSON.parse(req.body);
                     context.dataForm = req.body;
                     console.log("2");
-                        res.header("Access-Control-Allow-Origin","*");
-                        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                        res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
-                        res.header("Content-Security-Policy","default-src 'none'");
-                        res.send({
-                            "status": "success",
-                        });
+                        // res.header("Access-Control-Allow-Origin","*");
+                        // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                        // res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+                        // res.header("Content-Security-Policy","default-src 'none'");
+                        // res.send({
+                        //     "status": "success",
+                        // });
                         //callback(null, req.body);
                         console.log(data);
                         sdk.saveData(data).then(function(){
