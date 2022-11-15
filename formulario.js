@@ -74,6 +74,7 @@ module.exports = {
                         sdk.saveData(requestId, data).then(function(dataSave){
                             context.dataForm = req.body;
                             sdk.respondToHook(dataSave);
+                            console.log(dataSave);
                         });
                         console.log("3");
                         //requestStore.removeRequest(data);
