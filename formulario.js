@@ -48,13 +48,13 @@ module.exports = {
 	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
-            console.log(context.contextId);
+            console.log("#################"+ requestId);
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + context.contextId;
 	        context.url = url;
             callback(null, data);
         } 
         if (componentName === 'open_formulario'){
-            console.log(requestId);
+            console.log("#################"+ requestId);
             callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
                 try {
