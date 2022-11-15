@@ -5,6 +5,8 @@ var Promise        = sdk.Promise;
 var request        = require("request");
 var config         = require("./config");
 const form = require("express").Router();
+const redis = require("redis");
+const client = redis.createClient();
 //var mockServiceUrl = 'https://607b24a0bd56a60017ba36a5.mockapi.io/especialistas/?especialidad=' + especialidad;
 
 /*
@@ -51,9 +53,9 @@ module.exports = {
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + context.contextId;
 	        context.url = url;
             callback(null, data);
+            client.set(context.contextId, JSON.stringify(data));
         } 
         if (componentName === 'open_formulario'){
-            let datos = data;
             console.log(requestId);
             callback(null, new sdk.AsyncResponse());
             form.post("/:requestId", function(req, res){
@@ -71,7 +73,9 @@ module.exports = {
                             "status": "success",
                         });
                         //callback(null, req.body);
+                        let datos = JSON.parse(client.get(id));
                         sdk.respondToHook(datos);
+                        client.del(id);
                         console.log("3");
                 } catch (error) {
                     res.send(error);
