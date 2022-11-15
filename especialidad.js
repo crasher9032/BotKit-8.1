@@ -50,6 +50,7 @@ module.exports = {
                 findCabs()
                 .then(function(cabList) {
                     context.cabList = cabList;
+                    console.log(data);
 		            sdk.respondToHook(data);
                     console.log(cabList)
                 })
