@@ -72,9 +72,11 @@ module.exports = {
                         });
                         //callback(null, req.body);
                         console.log(data);
-                        sdk.respondToHook(data);
+                        sdk.saveData(data).then(function(){
+                            sdk.respondToHook(data);
+                        });
                         console.log("3");
-                        requestStore.removeRequest(data);
+                        //requestStore.removeRequest(data);
                 } catch (error) {
                     res.send(error);
                 }
