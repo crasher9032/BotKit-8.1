@@ -71,6 +71,7 @@ module.exports = {
                             "status": "success",
                         });
                         //callback(null, req.body);
+                        console.log(datos);
                         sdk.respondToHook(datos);
                         console.log("3");
                 } catch (error) {
