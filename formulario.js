@@ -72,7 +72,7 @@ module.exports = {
                         //callback(null, req.body);
                         //console.log(data);
                         context.dataForm = req.body;
-                        sdk.respondToHook(dataSave);
+                        sdk.respondToHook(data);
                         console.log("3");
                         //requestStore.removeRequest(data);
                 } catch (error) {
