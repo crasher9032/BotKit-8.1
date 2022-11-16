@@ -56,8 +56,8 @@ module.exports = {
             let dir = context.contextId;
             form.post(`/:${dir}`, function(req, res){
                 try {
-                        context.dataForm = req.body;
-                        sdk.respondToHook(data);
+                    context.dataForm = req.body;
+                    sdk.respondToHook(data);
                 } catch (error) {
                     res.send(error);
                 }
