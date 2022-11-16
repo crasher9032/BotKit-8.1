@@ -57,7 +57,7 @@ module.exports = {
             console.log("#################"+ requestId);
             callback(null, new sdk.AsyncResponse());
             let dir = context.contextId;
-            form.post(("/requestId"), function(req, res){
+            form.post("/:requestId", function(req, res){
                 try {
                     console.log(req.body);
                     //context.dataForm = JSON.parse(req.body);
