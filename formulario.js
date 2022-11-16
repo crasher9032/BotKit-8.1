@@ -71,11 +71,12 @@ module.exports = {
                         // });
                         //callback(null, req.body);
                         //console.log(data);
-                        sdk.saveData(requestId, data).then(function(dataSave){
-                            context.dataForm = req.body;
-                            sdk.respondToHook(dataSave);
-                            console.log(dataSave);
-                        });
+                        context.dataForm = req.body;
+                        sdk.sendBotMessage(null, data);
+                        // sdk.saveData(requestId, data).then(function(dataSave){
+                        //     sdk.respondToHook(dataSave);
+                        //     console.log(dataSave);
+                        // });
                         console.log("3");
                         //requestStore.removeRequest(data);
                 } catch (error) {
