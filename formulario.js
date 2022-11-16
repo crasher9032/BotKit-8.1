@@ -45,10 +45,8 @@ module.exports = {
     on_webhook      : function(requestId, data, componentName, callback) {
         console.log("llamada al webhook");
     try{
-	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
-            console.log("#################"+ context.contextId);
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + context.contextId;
 	        context.url = url;
             callback(null, data);
@@ -56,26 +54,10 @@ module.exports = {
         if (componentName === 'open_formulario'){
             callback(null, new sdk.AsyncResponse());
             let dir = context.contextId;
-            console.log("#################"+ dir);
             form.post(`/:${dir}`, function(req, res){
                 try {
-                    console.log(req.body);
-                    //context.dataForm = JSON.parse(req.body);
-                    console.log("2");
-                    // res.header("Access-Control-Allow-Origin","*");
-                        // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                        // res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
-                        // res.header("Content-Security-Policy","default-src 'none'");
-                        // res.send({
-                        //     "status": "success",
-                        // });
-                        //callback(null, req.body);
-                        //console.log(data);
                         context.dataForm = req.body;
                         sdk.respondToHook(data);
-                        console.log("3");
-                        //setTimeout(function() {sdk.respondToHook(data)}, 600000);
-                        //requestStore.removeRequest(data);
                 } catch (error) {
                     res.send(error);
                 }
