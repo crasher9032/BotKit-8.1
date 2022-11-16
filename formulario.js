@@ -48,16 +48,16 @@ module.exports = {
 	//callback(null, new sdk.AsyncResponse());
         var context = data.context;
         if (componentName === 'get_formulario') {
-            console.log("#################"+ requestId);
+            console.log("#################"+ context.contextId);
             let url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/form-escuela.html?task=' + context.contextId;
 	        context.url = url;
             callback(null, data);
         } 
         if (componentName === 'open_formulario'){
-            console.log("#################"+ requestId);
             callback(null, new sdk.AsyncResponse());
             let dir = context.contextId;
-            form.post("/:requestId", function(req, res){
+            console.log("#################"+ dir);
+            form.post(`/:${dir}`, function(req, res){
                 try {
                     console.log(req.body);
                     //context.dataForm = JSON.parse(req.body);
@@ -74,6 +74,7 @@ module.exports = {
                         context.dataForm = req.body;
                         sdk.respondToHook(data);
                         console.log("3");
+                        //setTimeout(function() {sdk.respondToHook(data)}, 600000);
                         //requestStore.removeRequest(data);
                 } catch (error) {
                     res.send(error);
