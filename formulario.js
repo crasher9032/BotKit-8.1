@@ -57,7 +57,7 @@ module.exports = {
             console.log("#################"+ requestId);
             callback(null, new sdk.AsyncResponse());
             let dir = context.contextId;
-            form.post(("/:" + dir), function(req, res){
+            form.post(("/requestId"), function(req, res){
                 try {
                     console.log(req.body);
                     //context.dataForm = JSON.parse(req.body);
@@ -71,11 +71,8 @@ module.exports = {
                         // });
                         //callback(null, req.body);
                         //console.log(data);
-                        sdk.saveData(requestId, data).then(function(dataSave){
-                            context.dataForm = req.body;
-                            sdk.respondToHook(dataSave);
-                            console.log(dataSave);
-                        });
+                        context.dataForm = req.body;
+                        sdk.respondToHook(dataSave);
                         console.log("3");
                         //requestStore.removeRequest(data);
                 } catch (error) {
