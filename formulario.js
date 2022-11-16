@@ -56,9 +56,9 @@ module.exports = {
         if (componentName === 'open_formulario'){
             console.log("#################"+ requestId);
             callback(null, new sdk.AsyncResponse());
-            form.post("/:requestId", function(req, res){
+            let dir = context.contextId;
+            form.post(("/:" + dir), function(req, res){
                 try {
-                    let id = req.params.requestId;
                     console.log(req.body);
                     //context.dataForm = JSON.parse(req.body);
                     console.log("2");
@@ -70,7 +70,7 @@ module.exports = {
                         //     "status": "success",
                         // });
                         //callback(null, req.body);
-                        console.log(data);
+                        //console.log(data);
                         sdk.saveData(requestId, data).then(function(dataSave){
                             context.dataForm = req.body;
                             sdk.respondToHook(dataSave);
