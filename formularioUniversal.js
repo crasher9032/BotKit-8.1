@@ -26,13 +26,13 @@ module.exports = {
             var context = data.context;
             if (componentName === 'get_formulario') {
                 console.log(data);
-                context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + context.contextId;
+                context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + context.taskid;
                 callback(null, data);
             } 
             if (componentName === 'open_formulario'){
                 console.log(data);
                 callback(null, new sdk.AsyncResponse());
-                let dir = context.contextId;
+                let dir = context.taskid;
                 form.post(`/:${dir}`, function(req, res){
                     try {
                         context.dataForm = req.body;
