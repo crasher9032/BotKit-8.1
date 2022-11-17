@@ -26,7 +26,7 @@ module.exports = {
         try{
             if (componentName === 'get_formulario') {
                 console.log(data);
-                context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + id;
+                data.context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + id;
                 callback(null, data);
             } 
             if (componentName === 'open_formulario'){
@@ -34,7 +34,7 @@ module.exports = {
                 callback(null, new sdk.AsyncResponse());
                 form.post(`/:${id}`, function(req, res){
                     try {
-                        context.dataForm = req.body;
+                        data.context.dataForm = req.body;
                         sdk.respondToHook(data);
                     } catch (error) {
                         res.send(error);
