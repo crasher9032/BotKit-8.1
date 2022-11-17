@@ -22,18 +22,17 @@ module.exports = {
     },
     on_webhook      : function(requestId, data, componentName, callback) {
         console.log("llamada al webhook");
+        let id = data._originalPayload.contextId;
         try{
-            var context = data.context;
             if (componentName === 'get_formulario') {
                 console.log(data);
-                context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + context.taskid;
+                context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + id;
                 callback(null, data);
             } 
             if (componentName === 'open_formulario'){
                 console.log(data);
                 callback(null, new sdk.AsyncResponse());
-                let dir = context.taskid;
-                form.post(`/:${dir}`, function(req, res){
+                form.post(`/:${id}`, function(req, res){
                     try {
                         context.dataForm = req.body;
                         sdk.respondToHook(data);
