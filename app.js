@@ -12,8 +12,6 @@ const bodyParser = require('body-parser');
 const universal = require('./formularioUniversal');
 var exp = express();
 
-sdk.checkNodeVersion();
-
 server.start();
 
 sdk.registerBot(require('./FindAFlight.js'));
