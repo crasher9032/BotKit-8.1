@@ -6,9 +6,12 @@
         "apiPrefix" : "",
         "url": "http://ec2-54-164-250-93.compute-1.amazonaws.com"
     },
+    "validations": {
+        "leastNodeVersion": 10
+    },
     "credentials": {
-        "apikey": "B0hGohYvvikR+AyOLwxiY3Gl73HthTauI3nCmaTaSVo=",
-        "appId": "cs-223916b6-7923-5d07-a909-7ae2cd9276b3",
+        "apikey": "aJK2x8lPtznuHQnwg9DbFQQbklXQcBZUaGIJeHbsT4A=",
+        "appId": "cs-ab90b803-2fb0-5e61-ba31-92eaa183311d",
         "st-67890":{
             "apikey": "test_api_key2",
             "appId": "test_app_id2"
