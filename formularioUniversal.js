@@ -25,12 +25,12 @@ module.exports = {
         let id = data._originalPayload.contextId;
         try{
             if (componentName === 'get_formulario') {
-                console.log(data);
+                // console.log(data);
                 data.context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + id;
                 callback(null, data);
             } 
             if (componentName === 'open_formulario'){
-                console.log(data);
+                // console.log(data);
                 callback(null, new sdk.AsyncResponse());
                 form.post(`/:${id}`, function(req, res){
                     try {
