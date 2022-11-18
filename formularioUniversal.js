@@ -21,7 +21,7 @@ module.exports = {
         sdk.sendUserMessage(data, callback);
     },
     on_webhook      : function(requestId, data, componentName, callback) {
-        console.log("llamada al webhook");
+        // console.log("llamada al webhook");
         let id = data._originalPayload.contextId;
         try{
             if (componentName === 'get_formulario') {
