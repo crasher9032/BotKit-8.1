@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 8003
+        "port": 8002
     },
     "app": {
         "apiPrefix" : "",
@@ -10,8 +10,8 @@
         "leastNodeVersion": 10
     },
     "credentials": {
-        "apikey": "aJK2x8lPtznuHQnwg9DbFQQbklXQcBZUaGIJeHbsT4A=",
-        "appId": "cs-ab90b803-2fb0-5e61-ba31-92eaa183311d",
+        "apikey": "GvNwRvmIsyp350TvHD6AbH0KGYOBcxbN7RqgfuS/lXA=",
+        "appId": "cs-17dc9f08-e0b5-5d27-8f1d-7366c0f98bec",
         "st-67890":{
             "apikey": "test_api_key2",
             "appId": "test_app_id2"

@@ -1,5 +1,5 @@
-var botId          = "st-c4beedf8-0ace-5f49-84e5-ee680663c812";
-var botName        = "Nadro VA";
+var botId          = "st-5f411293-4e68-571c-8f9c-fbf7f4132f51";
+var botName        = "El Universal";
 var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
