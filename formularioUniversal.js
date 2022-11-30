@@ -26,7 +26,7 @@ module.exports = {
         try{
             if (componentName === 'get_formulario') {
                 // console.log(data);
-                data.context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formUniversalPago.html?task=' + id;
+                data.context.url = 'http://ec2-54-164-250-93.compute-1.amazonaws.com/Sueltos/formularioNadro.html?task=' + id;
                 callback(null, data);
             } 
             if (componentName === 'open_formulario'){
