@@ -10,8 +10,8 @@
         "leastNodeVersion": 10
     },
     "credentials": {
-        "apikey": "+N/J31lybRUPV8E7ODWduKLmWMTm25WcWba6hqzx9pQ=",
-        "appId": "cs-28139dff-0e57-5a7a-b204-eb563b71d068",
+        "apikey": "GvNwRvmIsyp350TvHD6AbH0KGYOBcxbN7RqgfuS/lXA=",
+        "appId": "cs-17dc9f08-e0b5-5d27-8f1d-7366c0f98bec",
         "st-67890":{
             "apikey": "test_api_key2",
             "appId": "test_app_id2"
