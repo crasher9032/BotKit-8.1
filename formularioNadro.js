@@ -68,12 +68,12 @@ module.exports = {
             console.log(e);
         }
     },
-    on_agent_transfer  : function (requestId, data, callback){
-        try {
-            console.log('Llamada al agente');
-            connectToAgent(requestId, data, callback);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // on_agent_transfer  : function (requestId, data, callback){
+    //     try {
+    //         console.log('Llamada al agente');
+    //         connectToAgent(requestId, data, callback);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 };
