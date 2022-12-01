@@ -69,6 +69,11 @@ module.exports = {
         }
     },
     on_agent_transfer  : function (requestId, data, callback){
-        connectToAgent(requestId, data, callback);
+        try {
+            console.log('Llamada al agente');
+            connectToAgent(requestId, data, callback);
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
