@@ -7,6 +7,29 @@ var config         = require("./config");
 const requestStore = require("./lib/sdk/lib/requestStore");
 const form = require("express").Router();
 
+
+function connectToAgent(requestId, data, cb){
+    var formdata = {};
+    formdata.licence_id = config.liveagentlicense;
+    formdata.welcome_message = "";
+    var visitorId = _.get(data, 'channel.channelInfos.from');
+    if(!visitorId){
+        visitorId = _.get(data, 'channel.from');
+    }
+    userDataMap[visitorId] = data;
+    data.message="An Agent will be assigned to you shortly!!!";
+    sdk.sendUserMessage(data, cb);
+    formdata.welcome_message = "Link for user Chat history with bot: "+ config.app.url +"/history/index.html?visitorId=" + visitorId;
+    return api.initChat(visitorId, formdata)
+         .then(function(res){
+             _map[visitorId] = {
+                 secured_session_id: res.secured_session_id,
+                 visitorId: visitorId,
+                 last_message_id: 0
+            };
+        });
+}
+
 module.exports = {
     form,
     botId   : botId,
@@ -44,5 +67,8 @@ module.exports = {
         }catch(e){
             console.log(e);
         }
+    },
+    on_agent_transfer  : function (requestId, data, callback){
+        connectToAgent(requestId, data, callback);
     }
 };
