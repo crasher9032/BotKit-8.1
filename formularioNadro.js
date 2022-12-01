@@ -1,5 +1,5 @@
-var botId          = "st-c4beedf8-0ace-5f49-84e5-ee680663c812";
-var botName        = "Nadro VA";
+var botId          = "2RbmH8k/4oix+Xc/p4jtSgOGI6XJHbIePslHSqfiCbM=";
+var botName        = "Nadro VA2";
 var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
@@ -8,27 +8,27 @@ const requestStore = require("./lib/sdk/lib/requestStore");
 const form = require("express").Router();
 
 
-function connectToAgent(requestId, data, cb){
-    var formdata = {};
-    formdata.licence_id = config.liveagentlicense;
-    formdata.welcome_message = "";
-    var visitorId = _.get(data, 'channel.channelInfos.from');
-    if(!visitorId){
-        visitorId = _.get(data, 'channel.from');
-    }
-    userDataMap[visitorId] = data;
-    data.message="An Agent will be assigned to you shortly!!!";
-    sdk.sendUserMessage(data, cb);
-    formdata.welcome_message = "Link for user Chat history with bot: "+ config.app.url +"/history/index.html?visitorId=" + visitorId;
-    return api.initChat(visitorId, formdata)
-         .then(function(res){
-             _map[visitorId] = {
-                 secured_session_id: res.secured_session_id,
-                 visitorId: visitorId,
-                 last_message_id: 0
-            };
-        });
-}
+// function connectToAgent(requestId, data, cb){
+//     var formdata = {};
+//     formdata.licence_id = config.liveagentlicense;
+//     formdata.welcome_message = "";
+//     var visitorId = _.get(data, 'channel.channelInfos.from');
+//     if(!visitorId){
+//         visitorId = _.get(data, 'channel.from');
+//     }
+//     userDataMap[visitorId] = data;
+//     data.message="An Agent will be assigned to you shortly!!!";
+//     sdk.sendUserMessage(data, cb);
+//     formdata.welcome_message = "Link for user Chat history with bot: "+ config.app.url +"/history/index.html?visitorId=" + visitorId;
+//     return api.initChat(visitorId, formdata)
+//          .then(function(res){
+//              _map[visitorId] = {
+//                  secured_session_id: res.secured_session_id,
+//                  visitorId: visitorId,
+//                  last_message_id: 0
+//             };
+//         });
+// }
 
 module.exports = {
     form,
