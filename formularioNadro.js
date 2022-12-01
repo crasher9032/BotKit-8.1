@@ -1,5 +1,5 @@
-var botId          = "2RbmH8k/4oix+Xc/p4jtSgOGI6XJHbIePslHSqfiCbM=";
-var botName        = "Nadro VA2";
+var botId          = "st-99324643-4f2e-5e2f-9972-e77f6d80ad71";
+var botName        = "Nadro App";
 var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var request        = require("request");
